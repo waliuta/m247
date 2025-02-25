@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Perspective_UIComponent::css/styles.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="recommendations" template="Perspective_UIComponent::recommendations.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Perspective\UIComponent\ViewModel\ProductRecommendations</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="product.info.main">
+            <block class="Magento\Framework\View\Element\Template" name="perspective.uicomponent" template="Perspective_UIComponent::index.phtml" >
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">
+                        Perspective\UIComponent\ViewModel\ProductRecommendations.php
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,15 @@
+<div class="product-reviews">
+    <h2>Отзывы</h2>
+    <div data-bind="if: reviews().length === 0">
+        <p>Нет отзывов для этого продукта.</p>
+    </div>
+    <div data-bind="foreach: reviews">
+        <div class="review-item">
+            <p><strong>Имя пользователя:</strong> <span data-bind="text: nickname"></span></p>
+            <p><strong>Отзыв:</strong> <span data-bind="text: detail"></span></p>
+            <p><strong>Дата:</strong> <span data-bind="text: created_at"></span></p>
+        </div>
+        <hr />
+    </div>
+</div>
+

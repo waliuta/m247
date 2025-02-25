@@ -1,0 +1,9 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main">
+            <block class="Perspective\UIComponentRest\Block\Product\Review"
+                   name="product.review.component" 
+                   template="Perspective_UIComponentRest::review-component.phtml" />
+        </referenceContainer>
+    </body>
+</page>

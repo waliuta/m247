@@ -1,0 +1,43 @@
+<?php
+/** @var \Perspective\UIProductReview\Block\ProductReviews $block */
+
+   echo $block->getProductId() . '<br />';
+   //echo "<pre>";
+   //var_dump ($block->getReviewCollection($block->getCurrentProduct())->getData());
+
+
+//$product = $block->getCurrentProduct();
+//$reviews = $block->getReviewCollection($product)->getData();
+?>
+
+<div id="product">
+    <h1>Проверка</h1>
+</div>
+<?= "Hello" ?>
+
+<div id="product-reviews" data-bind="scope: 'product-reviews'">
+    <!-- Использование Knockout.js -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <ul data-bind="foreach: reviews">
+        <li>
+            <strong data-bind="text: nickname"></strong>
+            <p data-bind="text: detail"></p>
+            <small data-bind="text: created_at"></small>
+        </li>
+    </ul>
+
+    <script type="text/x-magento-init">
+        {
+           "*": {
+                "Perspective_UIProductReview/js/product-reviews": {
+                    "productId": <?= json_encode($block->getProductId()) ?>,
+                    "reviews": <?= json_encode($block->getReviewCollection($block->getCurrentProduct())->getData()) ?>,
+                    "template": "Perspective_UIProductReview/product-reviews"
+                }
+            }
+        }
+    </script>
+</div>
+
+
+

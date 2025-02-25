@@ -1,0 +1,15 @@
+<?php
+/** @var \Perspective\CurrentProduct\Block\CurrentProduct $block */
+
+if ($currentProduct = $block->getCurrentProduct()) {
+    echo $currentProduct->getId() . '<br />';
+    echo $currentProduct->getName() . '<br />';
+    echo $currentProduct->getSku() . '<br />';
+    echo $currentProduct->getFinalPrice() . '<br />';
+    echo $currentProduct->getProductUrl() . '<br />'; 
+   }
+?>
+
+<div class="template">
+    <h1><?=$block->getName()?></h1>
+</div>

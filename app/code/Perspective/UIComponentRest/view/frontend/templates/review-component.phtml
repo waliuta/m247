@@ -1,0 +1,19 @@
+<?php
+/** @var \Perspective\UIComponentRest\Block\Product\Review $block */
+?>
+<h1> Проверка </h1>
+<div class="template">
+    <h1><?=$block->getProductId()?></h1>
+    <h2><?=$block->getRevById('1396')?></h2>
+</div>
+<div id="product-reviews" data-bind="scope: 'review-component'">
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Perspective_UIComponentRest/js/view/review-component": {
+                    "productId": <?= $block->escapeJs($block->getProductId()) ?>
+                }
+            }
+        }
+    </script>
+</div>

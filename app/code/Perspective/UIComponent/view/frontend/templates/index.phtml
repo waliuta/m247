@@ -1,0 +1,22 @@
+<div id="productui">
+    <h1>Проверка</h1>
+</div>
+
+<div data-bind="scope: 'perspective-component'">
+    <h2 data-bind="text: title"></h2>
+</div>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "perspective-component": {
+                    "component": "Perspective_UIComponent/js/component",
+                    "title": "Hello World!"
+                }
+            }
+        }
+    }
+}
+</script>

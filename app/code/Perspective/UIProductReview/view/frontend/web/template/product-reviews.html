@@ -1,0 +1,10 @@
+<h1> Template html product-review </h1>
+<div id="rev">
+    <ul data-bind="foreach: reviews">
+        <li>
+            <strong data-bind="text: reviews.nickname"></strong>
+            <p data-bind="text: reviews.detail"></p>
+            <small data-bind="text: reviews.created_at"></small>
+        </li>
+    </ul>
+</div>
