@@ -1,23 +1,26 @@
 <?php
-
 namespace Perspective\HelloWorld\Controller\Index;
 
+use Magento\Framework\App\Action\HttpGetActionInterface;
+use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends Action implements HttpGetActionInterface
+class Index implements HttpGetActionInterface
 {
-    protected PageFactory $pageFactory;
+    protected $context;
+    protected $resultPageFactory;
 
     public function __construct(
-        \Magento\Framework\App\Action\Context $context,
-        PageFactory $pageFactory
+        Context $context,
+        PageFactory $resultPageFactory
     ) {
-        parent::__construct($context);
-        $this->pageFactory = $pageFactory;
+        $this->context = $context;
+        $this->resultPageFactory = $resultPageFactory;
     }
 
     public function execute()
     {
-        return $this->pageFactory->create();
+        $resultPage = $this->resultPageFactory->create();
+        return $resultPage;
     }
 }
