@@ -1,0 +1,28 @@
+<?php
+/** @var Perspective\RepositoryExcersize\ViewModel\ViewModelRepo  */
+
+
+$viewModel = $block->getViewModel();
+
+?>
+
+<h2>Welcome to PerspectiveStudio Repository</h2>
+
+<?php $product = $viewModel->getProductById('1'); ?>
+<?php if (!is_null($product)) : ?>
+    <h2><?= $product->getName(); ?></h2>
+    <p><?= $product->getPrice() ?></p>
+    <p><?= $product->getStatus() ?></p>
+    <?php endif; ?>
+    <hr>
+
+<?php
+    $customAttributes = $product->getCustomAttributes();
+    
+    foreach ($customAttributes as $attribute) {
+        echo '<pre>';
+        var_dump($attribute->getAttributeCode() . ': ');
+        var_dump($attribute->getValue());
+        echo '</pre>';
+    }
+?>
