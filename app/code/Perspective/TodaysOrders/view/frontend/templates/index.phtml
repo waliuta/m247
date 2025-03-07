@@ -1,0 +1,34 @@
+<?php
+/** @var Perspective\TodaysOrders\ViewModel\TodaysOrders $viewModel */
+$viewModel = $block->getViewModel();
+$orders = $viewModel->getTodaysOrders();
+?>
+
+<h1>Заказы, сделанные сегодня</h1>
+
+<?php if (empty($orders)): ?>
+    <p>Сегодня заказов нет.</p>
+<?php else: ?>
+    <table border="1" cellpadding="5">
+        <thead>
+            <tr>
+                <th>ID заказа</th>
+                <th>Дата</th>
+                <th>Статус</th>
+                <th>Сумма</th>
+                <th>Покупатель</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($orders as $order): ?>
+                <tr>
+                    <td><?= $order->getEntityId() ?></td>
+                    <td><?= $order->getCreatedAt() ?></td>
+                    <td><?= $order->getStatus() ?></td>
+                    <td><?= number_format($order->getGrandTotal(), 2) ?> <?= $order->getOrderCurrencyCode() ?></td>
+                    <td><?= $viewModel->getCustomerInfo($order->getCustomerId()) ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php endif; ?>
