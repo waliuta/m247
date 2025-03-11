@@ -1,0 +1,19 @@
+<?php
+/** @var \Perspective\FindCouponByCode\ViewModel\CouponViewModel $viewModel */
+$viewModel = $block->getViewModel();
+
+$code = 'H20'; // Укажите нужный код купона
+$coupon = $viewModel->getCouponByCode($code);
+$isActive = $viewModel->isCouponActive($coupon);
+?>
+
+<h1>Поиск купона по коду</h1>
+
+<?php if ($coupon): ?>
+    <p><strong>Код купона:</strong> <?= $coupon->getCode() ?></p>
+    <p><strong>Количество использований:</strong> <?= $coupon->getTimesUsed() ?></p>
+    <p><strong>Дата истечения:</strong> <?= $coupon->getExpirationDate() ?: 'Без ограничения' ?></p>
+    <p><strong>Статус:</strong> <?= $isActive ? '<span style="color:green;">Активен</span>' : '<span style="color:red;">Просрочен</span>' ?></p>
+<?php else: ?>
+    <p>Купон с кодом <strong><?= $code ?></strong> не найден.</p>
+<?php endif; ?>
