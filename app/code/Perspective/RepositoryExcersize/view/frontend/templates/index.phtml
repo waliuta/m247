@@ -8,7 +8,7 @@ $viewModel = $block->getViewModel();
 
 <h2>Welcome to PerspectiveStudio Repository</h2>
 
-<?php $product = $viewModel->getProductById('1'); ?>
+<?php $product = $viewModel->getProductById('5'); ?>
 <?php if (!is_null($product)) : ?>
     <h2><?= $product->getName(); ?></h2>
     <p><?= $product->getPrice() ?></p>
