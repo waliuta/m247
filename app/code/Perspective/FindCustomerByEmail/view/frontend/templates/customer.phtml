@@ -1,0 +1,18 @@
+<?php
+/** @var \Perspective\FindCustomerByEmail\ViewModel\CustomerViewModel $viewModel */
+$viewModel = $block->getViewModel();
+
+$email = 'waliborman@gmail.com'; // Здесь можно подставить нужный email
+$customer = $viewModel->getCustomerByEmail($email);
+?>
+
+<h1>Поиск клиента по email</h1>
+
+<?php if ($customer): ?>
+    <p><strong>ID:</strong> <?= $customer->getId() ?></p>
+    <p><strong>Имя:</strong> <?= $customer->getFirstname() ?></p>
+    <p><strong>Фамилия:</strong> <?= $customer->getLastname() ?></p>
+    <p><strong>Email:</strong> <?= $customer->getEmail() ?></p>
+<?php else: ?>
+    <p>Клиент с email <strong><?= $email ?></strong> не найден.</p>
+<?php endif; ?>
